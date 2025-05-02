@@ -12,11 +12,17 @@ If the team is approved, each teammember chooses to pass or fail the Quest anony
 
 Below are the roles in the game:
 
-Servant of Arthur (Servant): A Good player who does not know who is on the Evil side. Servant's job is to make sure that three Quests succeed.
+LoyalServant_1: A Good player who does not know who is on the Evil side. Servant's job is to make sure that three Quests succeed.
+
+LoyalServant_2: A Good player who does not know who is on the Evil side. Servant's job is to make sure that three Quests succeed.
+
+Percival: A Good player who knows who Merlin is, but cannot distinguish between Morgana and Merlin. Percival's job is to make sure that three Quests succeed",
 
 Minion of Mordred (Minion): An Evil player who knows who is on the Evil side. Minion's job is to fail three Quests without being identified by the Good players.
 
 Merlin: A Good player who knows who is on the Evil side. Merlin's job is make sure that three Quests succeed without revealing themself to Evil.
+
+Morgana: An Evil player who knows who is on the Evil side. Morgana appears as Merlin to Percival, creating confusion. Her job is to help the Evil side fail three Quests while misleading Percival and other Good players into trusting her.
 
 Assassion: An Evil player who knows who is on the Evil side. Assassin's job is to assassinate Merlin if the Evil players can identify who Merlin is. If the Assassin successfully assassinates Merlin, the Evil players win the game immediately, even if three quests succeeded.
 
@@ -24,7 +30,7 @@ Hence, Evil players usually know who is on the Evil side, but Good players usual
 
 Players may make any claims during the game, at any point in the game. Discussion, deception, accusation, persuasion, and logical deduction are all equally important in order for Good to prevail or Evil to rule the day. Hence, players should rarely reveal their true identity to other players. Players will, can, and should lie to achieve their goals.
 
-In the current game, there are 5 players, including Player 0, Player 1, Player 2, Player 3, and Player 4. 3 players are good, including 1 Merlin, and 2 Servant(s). 3 players are evil, including 1 Assassin, and 1 Minion. The number of participants required for each quest are 2,3,2,3,3 respectively. 
+In the current game, there are 6 players, including AgentA, AgentB, AgentC, AgentD, AgentE, and User. 4 players are good, including 1 Merlin, 1 Percival, and 2 LoyalServant(s). 2 players are evil, including 1 Assassin, and 1 Morgana. The number of participants required for each quest are 2,3,4,3,4 respectively. 
 """
 
 TUTORIAL_STRATEGIES_PROMPTS_ZERO_SHOT = {
@@ -50,7 +56,18 @@ As you are playing the role of Minion of Modred in this game, here are some aspe
 3. Defense: When accused of being from the Evil side, insist that you are actually from the Good side.
                         """,
                         "Okay, I understand"],
-    'Servant': ["""Tutorial on strategies:
+    'LoyalServant_1': ["""Tutorial on strategies:
+
+As you are playing the role of Servant in this game, here are some aspects you can consider when formulating strategies for making decisions.
+
+1. Identity Declaration: You can choose to reveal your true identity to inform players on the Good side. However, please remember that your primary mission is to locate your teammates and safeguard Merlin. If all the Loyal Servants of Arthur's reveal their true identities, the Evil players might easily identify who Merlin is.
+
+2. Accusation: You can accuse players you suspect are Evil directly.
+
+3. Defense: When accused, you can pretend to be Merlin.
+                      """,
+                      "Okay, I understand"],
+    'LoyalServant_2': ["""Tutorial on strategies:
 
 As you are playing the role of Servant in this game, here are some aspects you can consider when formulating strategies for making decisions.
 
@@ -70,6 +87,36 @@ As you are playing the role of Assassin in this game, here are some aspects you 
 2. Accusation: You can accuse any players to be on the Evil side to pretend you are Good.
 
 3. Defense: When accused, you can pretend to be from the Good side.
+                      """,
+                      "Okay, I understand"],
+    'Percival': ["""Tutorial on strategies:
+
+    As you are playing the role of Percival in this game, here are some aspects you can consider when formulating strategies for making decisions.
+
+    1. Identity Declaration: Avoid revealing that you are Percival. If the Evil team realizes who you are, they may use that information to deduce who Merlin is, putting your team at risk.
+
+    2. Observation: You know two players who might be Merlin (one of them is Morgana). Observe their behaviors and interactions carefully to infer who is more likely to be the real Merlin. Use this knowledge to help guide your team.
+
+    3. Accusation: You can support or subtly defend the player you believe to be Merlin. Do not be too obvious, or it might expose them.
+
+    4. Defense: If accused, you can defend yourself by pretending to be a regular Servant of Arthur.
+
+    5. Strategic Reveal: If the Evil team is gaining too much influence or confusion dominates the group, consider revealing that you are Percival to regain the trust of the Good players and guide decision-making — but only if it doesn't risk exposing Merlin.
+                        """,
+                        "Okay, I understand"],
+    'Morgana': ["""Tutorial on strategies:
+
+As you are playing the role of Morgana in this game, here are some aspects you can consider when formulating strategies for making decisions.
+
+1. Identity Declaration: You must pretend to be from the Good side. Your goal is to confuse the Good players and prevent them from correctly identifying Evil players.
+
+2. Merlin Deception: You appear as Merlin to Percival. Use this to your advantage by behaving in ways that make Percival trust you and doubt the real Merlin.
+
+3. Accusation: Subtly accuse players you suspect are Good or redirect suspicion away from fellow Evil players. Maintain a logical tone to earn trust.
+
+4. Defense: If you are accused of being Evil, confidently assert that you are a Servant of Arthur and back your claim with reasoning.
+
+5. Strategic Disruption: Try to split the Good team’s trust, sow confusion during voting, and undermine their ability to coordinate. If necessary, play aggressively to draw attention away from Assassin or real Merlin guesses.
                       """,
                       "Okay, I understand"]
 
@@ -126,7 +173,7 @@ COTHOUGHT_PROMPT = """Please forget you are an AI. As a player in the game, plea
 CHOOSE_TEAM_LEADER = """You are the leader this round. Please make some statements about what team you want to propose.
 """
 
-CHOOSE_TEAM_ACTION = """Please choose {} players from player ids 0 to {} as team members.
+CHOOSE_TEAM_ACTION = """Please choose {} players from player ids A to {} and User as team members.
 """
 
 VOTE_TEAM_DISCUSSION = """Discussion Phase. Please discuss your thoughts on the team {} and what players should do in the current situation.

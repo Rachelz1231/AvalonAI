@@ -103,6 +103,14 @@ verifier_agent = autogen.AssistantAgent(
     llm_config={"config_list": config_list},
 )
 
+# RA Self-Feedback agent for AgentC
+feedback_agent_c = autogen.AssistantAgent(
+    name="FeedbackAgentC",
+    system_message="You are a self-feedback agent. Given a draft response, your job is to provide natural language feedback on how to improve it for strategic quality, clarity, and impact in a social deduction game.",
+    llm_config={"config_list": config_list},
+)
+
+
 
 # All agents in the game (excluding the Game Master)
 all_agents = [agent_A, agent_B, agent_C, agent_D, agent_E]
@@ -359,6 +367,23 @@ def run_game():
             response = verifier_agent.generate_reply([
                 {"role": "user", "content": f"Draft: {draft}\n\nCriteria: {criteria}\n\nScores: {scores}"}
             ])
+        elif agent.name == "AgentC":
+            # Initial draft response from AgentC
+            response = agent.generate_reply([
+                {"role": "user", "content": history_text},
+                {"role": "user", "content": f"Based on the conversation so far and your role, give your honest opinion about the proposed team: {', '.join([a if isinstance(a, str) else a.name for a in initial_team])}. DO NOT REVEAL YOUR ROLE directly."}
+            ])
+
+            # Apply RA Self-Feedback loop twice
+            for _ in range(2):
+                feedback = feedback_agent_c.generate_reply([
+                    {"role": "user", "content": f"Provide feedback to improve this response:\n{response}"}
+                ])
+
+                response = agent.generate_reply([
+                    {"role": "user", "content": f"Here is feedback on your previous message:\n{feedback}\n\nPlease revise your message accordingly. Return only the improved response and do NOT prefix your response with words like 'Final:', 'Conclusion:', or similar summarizing phrases. Speak naturally and directly."}
+                ])
+
         else:
             response = agent.generate_reply(
                 messages=[

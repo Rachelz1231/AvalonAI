@@ -10,7 +10,7 @@ termination_msg = "GAME OVER"
 config_list = [
     {
         "model": "gpt-4",
-        "api_key": "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",
+        "api_key": "",
     }
 ]
 

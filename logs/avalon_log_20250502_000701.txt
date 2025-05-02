@@ -1,0 +1,59 @@
+
+=== SECRET ROLE MAPPING (GAME MASTER ONLY) ===
+AgentA is Percival
+AgentB is Merlin
+AgentC is Assassin
+AgentD is LoyalServant
+AgentE is Morgana
+=============================================
+
+
+Step 1: Select the initial 3 players for the team.
+
+=== INITIAL TEAM SELECTION ===
+
+Select three agents for the initial team (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentB, AgentC
+Is this correct? (y/n)
+Initial team: AgentA, AgentB, AgentC
+
+Step 2: Now everyone speaks once about the initial team.
+
+Your turn to speak. What do you want to say about the initial team?
+
+=== AGENT RESPONSES ===
+AgentA: You: With great trepidation, I cast my vote of trust in this team. May they prove their worth in this perilous quest.
+---
+AgentB: From what I have deduced so far, though the surface may appear as calm as a still pond, danger may lurk beneath. My intuition says substituting AgentC with someone else might provide us with more solid footing for the quest. AgentC's allegiances could perhaps lie elsewhere; we should remain cautious.
+---
+AgentC: Clearly, there is some distrust towards AgentC among our ranks. As for AgentA and AgentB, I see no immediate reasons to be skeptical of their loyalties. Yet, I suggest we proceed with caution. AgentC should substantiate their loyalty, or perhaps we should indeed consider a substitution. The success of our quests depends on the correct decision-making at this crucial moment.
+---
+AgentD: I hear your concerns. As for AgentC, they have yet not shown anything suspicious, yet I accept that uncertainty comes naturally in our game. AgentA and AgentB, on the other hand, seem willing to work for the team's success. As a loyal servant of Arthur, all I want is to ensure the success of our quests, so I am open to a discussion about AgentC's role. If there is not enough confidence in AgentC, maybe we should indeed consider another member for this quest. But let us not jump to conclusions without cause. Let their actions speak louder than our assumptions.
+---
+AgentE: Perhaps there is some wisdom in AgentB's words. We are all trying to navigate through this web of uncertainty and it would be wise to heed intuition. But then again, treading on the path where distrust reigns because of unfounded suspicions might not lead us towards our goal. The wave of uncertainty surrounding AgentC seems to be merely conjectures at this point. 
+
+However, to instill confidence within the team, could we possibly consider replacing AgentC with AgentD, who seems to be straightforward and loyal? As a unanimous trust in the team is vital for the successful completion of our quest, this replacement might be a necessary step towards building such trust.
+---
+
+Step 3: After hearing everyone's opinion, select the final 3 players for the quest.
+
+=== FINAL TEAM SELECTION ===
+
+Select three agents for the quest (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentB, AgentC
+Is this correct? (y/n)
+
+Step 4: Execute the quest with the selected team.
+
+=== QUEST BEGINS ===
+
+Selected agents for this quest: AgentA, AgentB, AgentC
+GameMaster: Quest begins with AgentA, AgentB, AgentC on the quest.
+Quest has FAILED! (2 success votes, 1 fail votes)
+
+=== QUEST ENDS ===
+
+
+=== GAME COMPLETED ===
+
+The EVIL team sabotaged the quest!

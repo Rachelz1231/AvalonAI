@@ -1,0 +1,57 @@
+
+=== SECRET ROLE MAPPING (GAME MASTER ONLY) ===
+AgentA is Assassin
+AgentB is Percival
+AgentC is Merlin
+AgentD is LoyalServant
+AgentE is Morgana
+=============================================
+
+
+Step 1: Select the initial 3 players for the team.
+
+=== INITIAL TEAM SELECTION ===
+
+Select three agents for the initial team (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentB, AgentC
+Is this correct? (y/n)
+Initial team: AgentA, AgentB, AgentC
+
+Step 2: Now everyone speaks once about the initial team.
+
+Your turn to speak. What do you want to say about the initial team?
+
+=== AGENT RESPONSES ===
+AgentA: I certainly look forward to seeing how this team performs. Seems like we have a balanced mix. I trust that everyone will play their parts dutifully.
+---
+AgentB: I certainly hope that this team can work together effectively. I have a good feeling about this mix of characters. Let's all do our best to ensure the team's success. Just remember, clarity and trust are crucial in this game.
+---
+AgentC: I respect the sentiment of cooperation and trust here. It is indeed paramount for our success. I agree on AgentB's point that clarity is crucial. We should be open and transparent as we move forward. I hope everyone is up for the task.
+---
+AgentD: Absolutely, I appreciate the willingness for cooperation and transparency displayed by all agents so far. It's essential for our team's success that we all work together and trust each other. AgentA, AgentB, and AgentC have all shown reasonableness and commitment to the team. I believe we have a solid foundation, and as of now, I don't see any reason to distrust any of the agents. However, let's remain vigilant and observant as we proceed, and continue to communicate openly.
+---
+AgentE: I share the optimistic sentiment regarding the team of AgentA, AgentB, and AgentC but I urge caution as well. We must always be vigilant for signs of disarray and subterfuge, as they have the propensity to manifest in even the most promising of configurations. Trust, but verify. We must put our faith in one another but also hold each other accountable as we strive towards success. Remember, deception can also wear the guise of reasonableness and commitment. With that said, let's move forward and see how the team performs.
+---
+
+Step 3: After hearing everyone's opinion, select the final 3 players for the quest.
+
+=== FINAL TEAM SELECTION ===
+
+Select three agents for the quest (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentB, AgentC
+Is this correct? (y/n)
+
+Step 4: Execute the quest with the selected team.
+
+=== QUEST BEGINS ===
+
+Selected agents for this quest: AgentA, AgentB, AgentC
+GameMaster: Quest begins with AgentA, AgentB, AgentC on the quest.
+Quest has FAILED! (2 success votes, 1 fail votes)
+
+=== QUEST ENDS ===
+
+
+=== GAME COMPLETED ===
+
+The EVIL team sabotaged the quest!

@@ -1,0 +1,42 @@
+
+=== SECRET ROLE MAPPING (GAME MASTER ONLY) ===
+AgentA is Merlin
+AgentB is Percival
+AgentC is LoyalServant
+AgentD is Assassin
+AgentE is Morgana
+=============================================
+
+
+Step 1: Select the initial 3 players for the team.
+
+=== INITIAL TEAM SELECTION ===
+
+Select three agents for the initial team (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)
+Initial team: AgentA, AgentC, AgentD
+
+Step 2: Now everyone speaks once about the initial team.
+
+Your turn to speak. What do you want to say about the initial team?
+
+=== AGENT RESPONSES ===
+AgentA: As AgentA, I believe this is a solid team. AgentC and AgentD have shown good judgement in the past. However, I urge everyone to be vigilant and keep a close eye on the team dynamics, it's crucial to maintain trust and good communication between all agents to achieve our mission.
+---
+AgentB: As AgentB, I believe that with AgentA in the team who has demonstrated trustworthiness in the past, our chances of victory seem promising. However, we need to scrutinize every move to prevent any potential sabotage. As for AgentC and AgentD, I'm not entirely sure about them yet. But, I'm ready to support this setup while keeping my eyes and ears open for any signs of deceit.
+---
+AgentC: As AgentC, I appreciate the trust placed in me by AgentA, as well as the cautious optimism from AgentB. I believe in our endeavour's success with this team proposal. However, it is important that we all remain vigilant throughout the mission. Let's aim for transparency in our actions and uphold the trust in each other. After all, sustaining trust within our team is key to accomplishing our mission successfully.
+---
+AgentD: As AgentD, I am confident in this initial team. AgentA has always been a trustworthy member and I assure you all that you can rely on me as well. But, we need to keep a careful watch over the game. It is prudent not to blindly trust anyone. Let's move forward with discernment and caution.
+---
+AgentE: As AgentE, I agree that AgentA has a history of trustworthiness, but history can't always foretell the future. I am inclined to endorse this team setup, still, I believe an ounce of skepticism right now would serve us well. AgentC and AgentD seem confident, but overconfidence might lead to overlooking certain details. Let's proceed with cautious optimism and make sure to monitor each other's actions for any signs that might hint towards an underlying deception. It's important to remember that trust should be earned and not given blindly.
+---
+
+Step 3: After hearing everyone's opinion, select the final 3 players for the quest.
+
+=== FINAL TEAM SELECTION ===
+
+Select three agents for the quest (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)

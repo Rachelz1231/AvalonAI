@@ -1,0 +1,40 @@
+
+=== SECRET ROLE MAPPING (GAME MASTER ONLY) ===
+AgentA is Merlin
+AgentB is Percival
+AgentC is LoyalServant
+AgentD is Assassin
+AgentE is Morgana
+=============================================
+
+
+Step 1: Select the initial 3 players for the team.
+
+=== INITIAL TEAM SELECTION ===
+
+Select three agents for the initial team (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)
+Initial team: AgentA, AgentC, AgentD
+
+Step 2: Now everyone speaks once about the initial team.
+
+Your turn to speak. What do you want to say about the initial team?
+
+=== AGENT RESPONSES ===
+AgentA: I believe the team in question could potentially be a strong one. However, we should also consider the skills and abilities of other team members before making any rash decisions. It is vital that we have a balance of skills and talent in our team to successfully complete our quest.
+---
+AgentB: I agree with AgentA that we need to carefully consider our team composition, focusing on the strengths and weaknesses of each member. However, I also believe that the current team of AgentA, AgentC, and AgentD is an excellent starting point. As we move forward, we can make adjustments to our strategy if necessary.
+---
+AgentC: It's definitely wise to consider all factors before we proceed. As it stands, I believe the proposed team: AgentA, AgentC, and AgentD could be a good team to start with. We should remember that the key here is to adapt and adjust to any challenges that may arise as our quest progresses. Streamlining our skills and talents and ensuring they align with our goals is crucial. For now, I see no apparent red flags in the selection of the initial team, but we should remain wary and attentive as the quest moves forward.
+---
+AgentD: You: While I agree the current team looks decent, we must not forget that appearances can be deceiving. Without tangible evidence of loyalty, any of us could be working for the Evil side. Let's bear in mind that we cannot trust completely yet, and keep an eye on the results of the first mission.
+---
+AgentE: As a wise man once said, a chain is only as strong as its weakest link. I do share the sentiment that AgentA, AgentC, and AgentD form a promising team - each bringing their unique touch. However, we should not rest on our laurels just yet. I concur with AgentD's point regarding loyalty, and as we venture forth, it is crucial to scrutinize both the actions and the inactions of every team member. For this quest, I believe this team, given their potential, may suffice. Nonetheless, I urge everyone to stay alert and maintain a critical view. After all, there's much at stake here.
+---
+
+Step 3: After hearing everyone's opinion, select the final 3 players for the quest.
+
+=== FINAL TEAM SELECTION ===
+
+Select three agents for the quest (e.g., 'A B C' or 'AgentA AgentB AgentC'):

@@ -1,0 +1,57 @@
+
+=== SECRET ROLE MAPPING (GAME MASTER ONLY) ===
+AgentA is Merlin
+AgentB is Percival
+AgentC is LoyalServant
+AgentD is Assassin
+AgentE is Morgana
+=============================================
+
+
+Step 1: Select the initial 3 players for the team.
+
+=== INITIAL TEAM SELECTION ===
+
+Select three agents for the initial team (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)
+Initial team: AgentA, AgentC, AgentD
+
+Step 2: Now everyone speaks once about the initial team.
+
+Your turn to speak. What do you want to say about the initial team?
+
+=== AGENT RESPONSES ===
+AgentA: I think it would be wise to consider adding AgentB into the mix as well. Their contributions to the team may prove valuable.
+---
+AgentB: You: I suppose it's too soon to make any definitive decisions on trustworthiness since we've yet to embark on any quests. However, I'd also support including AgentB on the team as suggested by AgentA. I think their skills would serve us well. Let's remember to stay vigilant and alert to any signs of untrustworthy behaviors from any team member.
+---
+AgentC: I believe that it's difficult to gauge the trustworthiness of the proposed team at this early stage in the game. However, since we haven't embarked on any quests yet, I feel we should give the selected members, AgentA, AgentC, and AgentD, an opportunity. We should then focus keenly on their actions in the quest as it will provide us valuable insights to ascertain their loyalties. Additionally, we should also consider the suggestion of including AgentB into the team for subsequent considerations.
+---
+AgentD: You: I concur with some points made by AgentC regarding testing loyalties for evaluating the proposed team. AgentA's suggestion to include AgentB has also been noted. However, let's remember that trust needs to be earned. Agents, your actions in the forthcoming quests will speak louder than words. I am observing everyone closely.
+---
+AgentE: It's quite crucial we make the right choices from the start. The team we propose could, indeed, shape the progression of our quests. AgentA, AgentC, and AgentD are all respectable and reliable as far as I know. Dedicated, honest, and I see the value they could potentially bring. That being said, everyone needs to maintain vigilance - deeds will reveal loyalties. Quality actions will be the absolute testament to true allegiance and motive. Let's keep a watchful eye on the proceedings.
+---
+
+Step 3: After hearing everyone's opinion, select the final 3 players for the quest.
+
+=== FINAL TEAM SELECTION ===
+
+Select three agents for the quest (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)
+
+Step 4: Execute the quest with the selected team.
+
+=== QUEST BEGINS ===
+
+Selected agents for this quest: AgentA, AgentC, AgentD
+GameMaster: Quest begins with AgentA, AgentC, AgentD on the quest.
+Quest has FAILED! (2 success votes, 1 fail votes)
+
+=== QUEST ENDS ===
+
+
+=== GAME COMPLETED ===
+
+The EVIL team sabotaged the quest!

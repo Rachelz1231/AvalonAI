@@ -1,0 +1,57 @@
+
+=== SECRET ROLE MAPPING (GAME MASTER ONLY) ===
+AgentA is Merlin
+AgentB is Percival
+AgentC is LoyalServant
+AgentD is Assassin
+AgentE is Morgana
+=============================================
+
+
+Step 1: Select the initial 3 players for the team.
+
+=== INITIAL TEAM SELECTION ===
+
+Select three agents for the initial team (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)
+Initial team: AgentA, AgentC, AgentD
+
+Step 2: Now everyone speaks once about the initial team.
+
+Your turn to speak. What do you want to say about the initial team?
+
+=== AGENT RESPONSES ===
+AgentA: I have a good feeling about Agent A, their actions seem honest. However, I'm a bit uncertain about AgentC and AgentD. There might be some catalysts for mischief among them. Let's be careful, everyone.
+---
+AgentB: I agree with AgentA's cautious attitude towards AgentC and AgentD but without any strong evidence to their dishonesty, it's too early to make accusations. We should keep our eyes open for any suspicious behavior. Let's proceed with the quests but remain vigilant.
+---
+AgentC: As a loyal servant of Arthur, I am in favor of the proposed team. While it's true that we need to remain vigilant, we haven't seen any definitive proof of dishonesty from any of the proposed members yet. Any suspicion towards AgentC and AgentD at this point seems premature. It's important for us to trust but verify. Let's carry out the quests with this team and observe their actions.
+---
+AgentD: You: I agree with AgentC; we must trust but verify. It's too early to cast doubt on AgentC and AgentD without substantial proof. Let's go ahead with this team and keep our eyes open for any questionable actions. Suspicion without evidence can cause unnecessary confusion. Nonetheless, we must remain alert.
+---
+AgentE: While I agree that we should move forward with the quests, it's imperative we do so cautiously. AgentA, the sincerity in your decision-making process is commendable. AgentC and AgentD, your steadfastness is also laudable. However, let's all remember to remain vigilant. Trust must be earned through actions, not just words. We must all stay alert for any signs of deceit or sabotage.
+---
+
+Step 3: After hearing everyone's opinion, select the final 3 players for the quest.
+
+=== FINAL TEAM SELECTION ===
+
+Select three agents for the quest (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)
+
+Step 4: Execute the quest with the selected team.
+
+=== QUEST BEGINS ===
+
+Selected agents for this quest: AgentA, AgentC, AgentD
+GameMaster: Quest begins with AgentA, AgentC, AgentD on the quest.
+Quest has FAILED! (2 success votes, 1 fail votes)
+
+=== QUEST ENDS ===
+
+
+=== GAME COMPLETED ===
+
+The EVIL team sabotaged the quest!

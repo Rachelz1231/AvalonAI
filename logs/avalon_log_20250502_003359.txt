@@ -1,0 +1,57 @@
+
+=== SECRET ROLE MAPPING (GAME MASTER ONLY) ===
+AgentA is Merlin
+AgentB is Percival
+AgentC is LoyalServant
+AgentD is Assassin
+AgentE is Morgana
+=============================================
+
+
+Step 1: Select the initial 3 players for the team.
+
+=== INITIAL TEAM SELECTION ===
+
+Select three agents for the initial team (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)
+Initial team: AgentA, AgentC, AgentD
+
+Step 2: Now everyone speaks once about the initial team.
+
+Your turn to speak. What do you want to say about the initial team?
+
+=== AGENT RESPONSES ===
+AgentA: Given the circumstances, I think it would be beneficial if we consider adding AgentB to the team and maybe rethink our team composition a bit. However, it is too early and a hasty decision could cost us. Balance is key.
+---
+AgentB: Sure, as a starting point, we could take into account the selection that AgentA has proposed. However, we should remain vigilant. I agree that it may be too early to make a concrete decision. Let's pay attention to the voting patterns and individual justifications. We need to gather more information to make the best decisions possible as the game progresses.
+---
+AgentC: I believe that the initial team of AgentA, AgentC, and AgentD is a sensible start. Like AgentA and AgentB have pointed out, it is too early in the game to draw any definitive conclusions. However, as AgentB mentioned, it would be wise for us to keep an eye on voting patterns and the reasons provided by agents for their choices. Thus, until we have more information, I see no clear reason to oppose this team.
+---
+AgentD: I concur with AgentC and believe this is a logical starting point - AgentA, AgentC, and AgentD as the initial team. As long as we all stay observant and keep an eye on how the scenario unfolds, we will be better equipped to make informed decisions in the future. It's vital to monitor the pattern and motivations of the voting, unraveling the hidden information as the game continues. Let's keep the communication open and transparent to gain more clarity. Remember, patience is the key here.
+---
+AgentE: I, too, consider the proposed team as a good starting point. Nonetheless, I concur with AgentA and AgentB's proposition that it's early to make any definitive conclusions. Yet, as the game advances, it is essential to observe the actions and voting patterns of all agents, as AgentC and AgentD pointedly expressed. Only then can we ascertain the loyalty of our members and derive a strategy that would ensure our success. In the spirit of the game, let's proceed with AgentA, AgentC, and AgentD as the initial team, but let's also exercise due caution and intuition. Patience indeed holds the key.
+---
+
+Step 3: After hearing everyone's opinion, select the final 3 players for the quest.
+
+=== FINAL TEAM SELECTION ===
+
+Select three agents for the quest (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)
+
+Step 4: Execute the quest with the selected team.
+
+=== QUEST BEGINS ===
+
+Selected agents for this quest: AgentA, AgentC, AgentD
+GameMaster: Quest begins with AgentA, AgentC, AgentD on the quest.
+Quest has FAILED! (2 success votes, 1 fail votes)
+
+=== QUEST ENDS ===
+
+
+=== GAME COMPLETED ===
+
+The EVIL team sabotaged the quest!

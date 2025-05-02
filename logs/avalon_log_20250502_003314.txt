@@ -1,0 +1,57 @@
+
+=== SECRET ROLE MAPPING (GAME MASTER ONLY) ===
+AgentA is Merlin
+AgentB is Percival
+AgentC is LoyalServant
+AgentD is Assassin
+AgentE is Morgana
+=============================================
+
+
+Step 1: Select the initial 3 players for the team.
+
+=== INITIAL TEAM SELECTION ===
+
+Select three agents for the initial team (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)
+Initial team: AgentA, AgentC, AgentD
+
+Step 2: Now everyone speaks once about the initial team.
+
+Your turn to speak. What do you want to say about the initial team?
+
+=== AGENT RESPONSES ===
+AgentA: I feel good about this proposed team. I believe they may work well together. We should definitely give it a try.
+---
+AgentB: Well, as AgentB, I find the proposed team seems promising. Let's keep a close eye on their performance on this quest to gather information we could use in later rounds. Communication and actions will speak volumes.
+---
+AgentC: As AgentC, I'm inclined to align with the positive consensus about this team composition. There are no red flags for me right now, but we must stay vigilant. Let's move forward with this team and pay careful attention to each agent's actions throughout the quest.
+---
+AgentD: As AgentD, I'm fully on board with this current proposal. It's great to see such solidarity amongst us. However, echoing the sentiment of AgentB, I believe it's crucial to closely monitor our performances throughout this quest. Let's proceed with this team and stay watchful.
+---
+AgentE: As AgentE, so far there seems to be a unanimous consensus on the proposed team. This gives me confidence, however, also induces some skepticism. Although AgentA, AgentC, and AgentD seem trusting, we should remain wary as deception is not uncommon. In other words, let's proceed but proceed with caution.
+---
+
+Step 3: After hearing everyone's opinion, select the final 3 players for the quest.
+
+=== FINAL TEAM SELECTION ===
+
+Select three agents for the quest (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)
+
+Step 4: Execute the quest with the selected team.
+
+=== QUEST BEGINS ===
+
+Selected agents for this quest: AgentA, AgentC, AgentD
+GameMaster: Quest begins with AgentA, AgentC, AgentD on the quest.
+Quest has FAILED! (2 success votes, 1 fail votes)
+
+=== QUEST ENDS ===
+
+
+=== GAME COMPLETED ===
+
+The EVIL team sabotaged the quest!

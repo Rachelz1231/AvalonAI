@@ -1,6 +1,18 @@
 import autogen
 from typing import Dict, List, Any, Optional
 import random
+from prompts import TUTORIAL_STRATEGIES_PROMPTS_ZERO_SHOT, GAME_RULES
+import os
+from datetime import datetime
+
+os.makedirs("logs", exist_ok=True)
+log_filename = f"logs/avalon_log_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+log_file = open(log_filename, "w")
+
+def log(msg: str):
+    print(msg)
+    log_file.write(msg + "\n")
+
 
 # Configure a termination message
 termination_msg = "GAME OVER"
@@ -9,7 +21,7 @@ termination_msg = "GAME OVER"
 config_list = [
     {
         "model": "gpt-4",
-        "api_key": "",
+        "api_key": "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",
     }
 ]
 
@@ -24,7 +36,7 @@ role_descriptions = {
 
 # Randomly assign roles to generic agent names
 roles = ["Merlin", "Percival", "LoyalServant", "Assassin", "Morgana"]
-random.shuffle(roles)
+# random.shuffle(roles)
 
 # Create the agents with generic names and keep track of their roles
 agents_with_roles = {}
@@ -99,29 +111,35 @@ def initialize_game():
     # Share knowledge according to role abilities
     # Only Merlin knows who the evil agents are
     user_proxy.send(
-        message=f"You are Merlin. You know the evil agents are: {assassin.name} and {morgana.name}",
+        message=f"You are Merlin. Your name is {merlin.name} You know the evil agents are: {assassin.name} and {morgana.name}",
         recipient=merlin
     )
     
     # Percival knows who Merlin is, but also sees Morgana as Merlin
     user_proxy.send(
-        message=f"You are Percival. You see both {merlin.name} and {morgana.name} as potential Merlins and cannot distinguish between them.",
+        message=f"You are Percival. Your name is {percival.name} You see both {merlin.name} and {morgana.name} as potential Merlins and cannot distinguish between them.",
         recipient=percival
+    )
+
+    # Percival knows who Merlin is, but also sees Morgana as Merlin
+    user_proxy.send(
+        message=f"You are LoyalServant. Your name is {loyal_servant.name}",
+        recipient=loyal_servant
     )
     
     # Evil agents know each other
     for evil_agent in evil_team:
         evil_teammates = [agent.name for agent in evil_team if agent != evil_agent]
         user_proxy.send(
-            message=f"You are on the evil team. Your evil teammate is: {', '.join(evil_teammates)}",
+            message=f"You are on the evil team. Your name is {evil_agent.name} Your evil teammate is: {', '.join(evil_teammates)}",
             recipient=evil_agent
         )
     
-    # Print the hidden role mapping (only visible to the game runner, not players)
-    print("\n=== SECRET ROLE MAPPING (GAME MASTER ONLY) ===")
+    # log the hidden role mapping (only visible to the game runner, not players)
+    log("\n=== SECRET ROLE MAPPING (GAME MASTER ONLY) ===")
     for agent in all_agents:
-        print(f"{agent.name} is {agents_with_roles[agent]}")
-    print("=============================================\n")
+        log(f"{agent.name} is {agents_with_roles[agent]}")
+    log("=============================================\n")
 
 # Format conversation history into a readable string
 def format_conversation_history(history):
@@ -132,8 +150,8 @@ def format_conversation_history(history):
 
 # Run a quest with the selected agents
 def run_quest(selected_agents, conversation_history):
-    print("\n=== QUEST BEGINS ===\n")
-    print(f"Selected agents for this quest: {', '.join([a.name for a in selected_agents])}")
+    log("\n=== QUEST BEGINS ===\n")
+    log(f"Selected agents for this quest: {', '.join([a.name for a in selected_agents])}")
     
     # Track quest votes (success/fail)
     quest_success_votes = 0
@@ -142,7 +160,7 @@ def run_quest(selected_agents, conversation_history):
     # Add quest information to conversation history
     quest_start_msg = f"Quest begins with {', '.join([a.name for a in selected_agents])} on the quest."
     conversation_history.append({"speaker": "GameMaster", "message": quest_start_msg})
-    print(f"GameMaster: {quest_start_msg}")
+    log(f"GameMaster: {quest_start_msg}")
     
     # Get votes from selected agents
     for agent in selected_agents:
@@ -181,20 +199,20 @@ def run_quest(selected_agents, conversation_history):
     else:
         result_message = f"Quest has FAILED! ({quest_success_votes} success votes, {quest_fail_votes} fail votes)"
     
-    print(result_message)
+    log(result_message)
     conversation_history.append({"speaker": "GameMaster", "message": result_message})
     
-    print("\n=== QUEST ENDS ===\n")
+    log("\n=== QUEST ENDS ===\n")
     return quest_succeeded
 
 # Select agents for a quest
 def select_agents_for_quest(is_initial=False):
     if is_initial:
-        print("\n=== INITIAL TEAM SELECTION ===\n")
-        print("Select three agents for the initial team (e.g., 'A B C' or 'AgentA AgentB AgentC'):")
+        log("\n=== INITIAL TEAM SELECTION ===\n")
+        log("Select three agents for the initial team (e.g., 'A B C' or 'AgentA AgentB AgentC'):")
     else:
-        print("\n=== FINAL TEAM SELECTION ===\n")
-        print("Select three agents for the quest (e.g., 'A B C' or 'AgentA AgentB AgentC'):")
+        log("\n=== FINAL TEAM SELECTION ===\n")
+        log("Select three agents for the quest (e.g., 'A B C' or 'AgentA AgentB AgentC'):")
     
     while True:
         selection = input().strip()
@@ -216,16 +234,17 @@ def select_agents_for_quest(is_initial=False):
         
         # Validate selection
         if len(selected_agents) != 3:
-            print(f"Please select exactly 3 agents. You selected {len(selected_agents)}.")
+            log(f"Please select exactly 3 agents. You selected {len(selected_agents)}.")
             continue
         
         # Confirm selection
-        print(f"You've selected: {', '.join([a.name for a in selected_agents])}")
-        print("Is this correct? (y/n)")
+        log(f"You've selected: {', '.join([a.name for a in selected_agents])}")
+        log("Is this correct? (y/n)")
         confirmation = input().strip().lower()
         
         if confirmation == 'y':
             return selected_agents
+        log("Select three agents for the quest (e.g., 'A B C' or 'AgentA AgentB AgentC'):")
 
 # Main game loop
 def run_game():
@@ -236,22 +255,22 @@ def run_game():
     conversation_history = []
     
     # Step 1: Select initial 3 players
-    print("\nStep 1: Select the initial 3 players for the team.")
+    log("\nStep 1: Select the initial 3 players for the team.")
     initial_team = select_agents_for_quest(is_initial=True)
     initial_team_msg = f"Initial team: {', '.join([a.name for a in initial_team])}"
-    print(initial_team_msg)
+    log(initial_team_msg)
     conversation_history.append({"speaker": "GameMaster", "message": initial_team_msg})
     
     # Step 2: Everyone speaks once
-    print("\nStep 2: Now everyone speaks once about the initial team.")
+    log("\nStep 2: Now everyone speaks once about the initial team.")
     
     # User speaks first
-    print("\nYour turn to speak. What do you want to say about the initial team?")
+    log("\nYour turn to speak. What do you want to say about the initial team?")
     user_input = input("You: ")
     conversation_history.append({"speaker": "You", "message": user_input})
     
     # Each agent speaks once
-    print("\n=== AGENT RESPONSES ===")
+    log("\n=== AGENT RESPONSES ===")
     for agent in all_agents:
         # Format conversation history
         history_text = format_conversation_history(conversation_history)
@@ -264,26 +283,40 @@ def run_game():
             ]
         )
         
-        print(f"{agent.name}: {response}")
-        print("---")
+        # add zero-shot prompting for agent D, Assasin:
+        if agent == agent_D or agent == agent_A:
+            print(f"{agent.name:}")
+            role = agents_with_roles[agent]
+            strategy_guide = TUTORIAL_STRATEGIES_PROMPTS_ZERO_SHOT.get(role, [""])[0] # zero shot prompting
+
+            response = agent.generate_reply(
+                messages=[
+                    {"role": "user", "content": f"{GAME_RULES}\n\nYou are playing as {role}. Read this strategy guide:\n{strategy_guide}"},
+                    {"role": "user", "content": history_text},
+                    {"role": "user", "content": f"Now, based on your role, the conversation so far, share your opinion about the proposed team: {', '.join([a.name for a in initial_team])}. DO NOT reveal your identity directly, but you may deceive, deduce, accuse, or persuade others as needed. Keep your response short and in-character."}
+                ]
+            )
+
+        log(f"{agent.name}: {response}")
+        log("---")
         
         # Add to conversation history
         conversation_history.append({"speaker": agent.name, "message": response})
     
     # Step 3: Select 3 players for the quest again
-    print("\nStep 3: After hearing everyone's opinion, select the final 3 players for the quest.")
+    log("\nStep 3: After hearing everyone's opinion, select the final 3 players for the quest.")
     final_team = select_agents_for_quest(is_initial=False)
     
     # Step 4: Execute quest and see results
-    print("\nStep 4: Execute the quest with the selected team.")
+    log("\nStep 4: Execute the quest with the selected team.")
     quest_succeeded = run_quest(final_team, conversation_history)
     
     # Display final result
-    print("\n=== GAME COMPLETED ===\n")
+    log("\n=== GAME COMPLETED ===\n")
     if quest_succeeded:
-        print("The GOOD team won the quest!")
+        log("The GOOD team won the quest!")
     else:
-        print("The EVIL team sabotaged the quest!")
+        log("The EVIL team sabotaged the quest!")
 
 if __name__ == "__main__":
     run_game()

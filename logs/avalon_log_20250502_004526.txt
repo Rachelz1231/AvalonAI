@@ -1,0 +1,57 @@
+
+=== SECRET ROLE MAPPING (GAME MASTER ONLY) ===
+AgentA is Merlin
+AgentB is Percival
+AgentC is LoyalServant
+AgentD is Assassin
+AgentE is Morgana
+=============================================
+
+
+Step 1: Select the initial 3 players for the team.
+
+=== INITIAL TEAM SELECTION ===
+
+Select three agents for the initial team (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)
+Initial team: AgentA, AgentC, AgentD
+
+Step 2: Now everyone speaks once about the initial team.
+
+Your turn to speak. What do you want to say about the initial team?
+
+=== AGENT RESPONSES ===
+AgentA: I must say, this combination might be beneficial for us. However, I think having AgentB in the team could probably improve our chances.
+---
+AgentB: I agree with AgentA, that we should consider including AgentB. They bring valuable skills that could tilt the scales in our favor. Regardless, this initial team appears strong, and I am willing to see how they perform in the initial quest.
+---
+AgentC: This initial team does seem well-rounded, but I agree with AgentA's and AgentB's proposal to consider the potential value AgentB can contribute to our quests. It's important to have varied skills in our team. However, I believe we need further conversations and votes before making a final decision. Trust and vigilance must guide us through this process.
+---
+AgentD: I see where everyone is coming from but let's remember that we need to be cautious and strategic with our choices. I agree AgentB could be a valuable addition but this initial team already seems strong. I say we proceed with this proposed team: AgentA, AgentC, and AgentD. Still, we should keep an eye on the actions of each player carefully.
+---
+AgentE: I understand where AgentD is coming from and while the current team with AgentA, AgentC, and AgentD seems suitable, I have to agree with the majority about considering AgentB. Remember, it's crucial to have a comprehensive skillset for our undertaking. Nonetheless, we also need to be wary of possible deceit among us. I believe more discussions and careful considerations are in order. We must embrace wisdom and virtue in this testing time. We should proceed carefully and strategically. Let's keep in mind, everything is not always as it seems.
+---
+
+Step 3: After hearing everyone's opinion, select the final 3 players for the quest.
+
+=== FINAL TEAM SELECTION ===
+
+Select three agents for the quest (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)
+
+Step 4: Execute the quest with the selected team.
+
+=== QUEST BEGINS ===
+
+Selected agents for this quest: AgentA, AgentC, AgentD
+GameMaster: Quest begins with AgentA, AgentC, AgentD on the quest.
+Quest has FAILED! (2 success votes, 1 fail votes)
+
+=== QUEST ENDS ===
+
+
+=== GAME COMPLETED ===
+
+The EVIL team sabotaged the quest!

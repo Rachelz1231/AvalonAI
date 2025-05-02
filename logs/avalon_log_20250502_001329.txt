@@ -1,0 +1,71 @@
+
+=== SECRET ROLE MAPPING (GAME MASTER ONLY) ===
+AgentA is Merlin
+AgentB is Percival
+AgentC is LoyalServant
+AgentD is Assassin
+AgentE is Morgana
+=============================================
+
+
+Step 1: Select the initial 3 players for the team.
+
+=== INITIAL TEAM SELECTION ===
+
+Select three agents for the initial team (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)
+Initial team: AgentA, AgentC, AgentD
+
+Step 2: Now everyone speaks once about the initial team.
+
+Your turn to speak. What do you want to say about the initial team?
+
+=== AGENT RESPONSES ===
+AgentA: I have some reservations about this team composition. While I believe AgentA could be a reliable member of the team, I advise caution in regard to AgentC and AgentD. Perhaps we could consider including others in this mission for better balance and diversity of perspectives.
+---
+AgentB: I appreciate your thoughts, AgentA. If we're uncertain about AgentC and AgentD, we should consider a different arrangement. However, it is equally important that we remember to be cautious and not rush into conclusions. I suggest we adopt an iterative approach and perhaps include others like AgentB or yourself in the team, learning from each quest.
+---
+AgentC: I appreciate everyone's insights here. As it stands, we're in the early stages of the game and we don't have much information on everyone's true allegiances. It is a good strategy to gain information early on, and AgentA, AgentC, and AgentD being on this initial team could provide that. However, AgentA's concerns about AgentC and AgentD might have merit and should not be ignored.
+
+Our decision should strike a balance between gaining intel and having a successful mission. AgentB's suggestion to involve different agents, including himself, and learning iteratively also provides an interesting perspective. Maybe we could alter the team to have the right mix of agents we have some level of confidence in, along with agents we want to learn more about.
+
+Remember, at this stage, our voting choices can also provide valuable insights into everyone's possible allegiances. We should use this opportunity wisely.
+---
+AgentD: I appreciate the insights everyone has brought up so far – after all, as AgentC pointed out, we're in the early stages and every bit of information is critical. While I understand AgentA's concerns, I'm also inclined towards AgentB's idea of an iterative approach. A diverse team would indeed help in gathering more data about everyone's roles and intentions. Still, considering the risks, I believe a better balance could be struck here. 
+
+How about this – what if we swap AgentD with AgentB? It would be interesting to observe the dynamic of a new team composition and it should address the concerns raised by AgentA about the initial team. 
+
+Remember, for us all, it's not just about the immediate mission, but the bigger picture. We need to play cleverly and strategically. Let's keep our minds open and our intentions unclear. The voting pattern should indeed reveal lots interesting insights into each of our leanings.
+---
+AgentE: You: It's certainly an interesting proposal, AgentD, thank you for your thoughtful input. I, too, am largely in favor of a more iterative approach, as we must remember that we're all here to learn about each other, to discover allegiances, and play towards the bigger picture. Swapping AgentD with AgentB may indeed enhance the diversity of the team and provide us with more data, which is valuable at this early stage.
+
+I can appreciate AgentA's concerns about AgentC and AgentD, though. It is right to treat such concerns with prudence. Given the information we have right now, it may be beneficial to align more towards caution and change the initial team setup to something less questionable.
+
+Let's keep in mind that every decision matters, and any deviation from good alignment should be scrutinized. Of course, let's not forget to keep an eye on voting patterns; they can reveal a lot indeed.
+---
+
+Step 3: After hearing everyone's opinion, select the final 3 players for the quest.
+
+=== FINAL TEAM SELECTION ===
+
+Select three agents for the quest (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentB, AgentC
+Is this correct? (y/n)
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)
+
+Step 4: Execute the quest with the selected team.
+
+=== QUEST BEGINS ===
+
+Selected agents for this quest: AgentA, AgentC, AgentD
+GameMaster: Quest begins with AgentA, AgentC, AgentD on the quest.
+Quest has FAILED! (2 success votes, 1 fail votes)
+
+=== QUEST ENDS ===
+
+
+=== GAME COMPLETED ===
+
+The EVIL team sabotaged the quest!

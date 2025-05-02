@@ -1,0 +1,61 @@
+
+=== SECRET ROLE MAPPING (GAME MASTER ONLY) ===
+AgentA is Merlin
+AgentB is Percival
+AgentC is LoyalServant
+AgentD is Assassin
+AgentE is Morgana
+=============================================
+
+
+Step 1: Select the initial 3 players for the team.
+
+=== INITIAL TEAM SELECTION ===
+
+Select three agents for the initial team (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)
+Initial team: AgentA, AgentC, AgentD
+
+Step 2: Now everyone speaks once about the initial team.
+
+Your turn to speak. What do you want to say about the initial team?
+
+=== AGENT RESPONSES ===
+AgentA: I think this is a strong team. Both AgentA and AgentC have demonstrated great trustworthiness in the past. However, I wouldn't completely let my guard down regarding AgentD. It's still early in the game, and behavior can change. Let's see how AgentD performs in the quest.
+---
+AgentB: I agree with AgentA's assessment. It's wise to remain vigilant about AgentD at this stage. We should observe their actions in the upcoming quests and make sure they don't undermine our efforts. If everything goes according to plan, we'll be closer to winning.
+---
+AgentC: I agree with the sentiments expressed by both AgentA and AgentB. As it is still early in the game, making a call about AgentD's reliability is premature. Let's hope for the best and remain observant. As far as AgentA and AgentC are concerned, I have faith in them due to their previous trustworthy actions. Let's move forward with this team and aim for victory.
+---
+AgentD: Sure, I have no problem with AgentA and AgentC given their past performances, but AgentD is an unknown variable. Like everyone else, I am particularly skeptical about AgentD but I'm willing to give him a chance. Let's see how he fares in the upcoming mission. We have to be careful, but also give new people a chance.
+---
+AgentE: From what we've discussed so far, it appears that AgentA and AgentC are the most trustworthy among us. Their consistent performances have indeed reflected their commitment to our shared goal. 
+
+Regarding AgentD, I too have my reservations given we haven't seen his full potential yet. However, I support the thought of giving him an opportunity on the upcoming mission, as sometimes new perspectives can be beneficial. But of course, we'll need to keep a watchful eye and evaluate his actions throughout the mission; any hints of disloyalty should be addressed immediately.
+
+Remaining cautious is key to our success and the best way to ensure the mission's outcome swings in our favour.
+---
+
+Step 3: After hearing everyone's opinion, select the final 3 players for the quest.
+
+=== FINAL TEAM SELECTION ===
+
+Select three agents for the quest (e.g., 'A B C' or 'AgentA AgentB AgentC'):
+You've selected: AgentA, AgentC, AgentD
+Is this correct? (y/n)
+
+Step 4: Execute the quest with the selected team.
+
+=== QUEST BEGINS ===
+
+Selected agents for this quest: AgentA, AgentC, AgentD
+GameMaster: Quest begins with AgentA, AgentC, AgentD on the quest.
+Quest has FAILED! (2 success votes, 1 fail votes)
+
+=== QUEST ENDS ===
+
+
+=== GAME COMPLETED ===
+
+The EVIL team sabotaged the quest!

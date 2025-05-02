@@ -4,6 +4,7 @@ from prompts import *
 from typing import Dict, List, Any, Optional
 import random
 from Player import Player
+import re
 
 
 # Configure a termination message
@@ -278,7 +279,7 @@ def run_quest(selected_agents, conversation_history):
 
 # Modify the select_agents_for_quest function to use all_players
 # Select agents for a quest
-def select_agents_for_quest(is_initial=False):
+def select_agents_for_quest(is_initial=False, team_size=3):
     if is_initial:
         print("\n=== INITIAL TEAM SELECTION ===\n")
         print("Select three players for the initial team (e.g., 'A B C' or 'AgentA AgentB AgentC' or 'User'):")
@@ -310,8 +311,8 @@ def select_agents_for_quest(is_initial=False):
                     selected_agents.append(agent_obj)
 
         # Validate selection
-        if len(selected_agents) != 3:
-            print(f"Please select exactly 3 players. You selected {len(selected_agents)}.")
+        if len(selected_agents) != team_size:
+            print(f"Please select exactly {team_size} players. You selected {len(selected_agents)}.")
             continue
 
         # Confirm selection
@@ -322,91 +323,171 @@ def select_agents_for_quest(is_initial=False):
         if confirmation == 'y':
             return selected_agents
 
-# Main game loop
-def run_game():
-    # Initialize the game and share role knowledge
-    initialize_game()
-    
-    # Start tracking conversation history
-    conversation_history = []
-    
-    # Step 1: Select initial 3 players
-    print("\nStep 1: Select the initial 3 players for the team.")
-    initial_team = select_agents_for_quest(is_initial=True)
-    initial_team_msg = f"Initial team: {', '.join([a if isinstance(a, str) else a.name for a in initial_team])}"
-    print(initial_team_msg)
-    conversation_history.append({"speaker": "GameMaster", "message": initial_team_msg})
-    
-    # Step 2: Everyone speaks once
-    print("\nStep 2: Now everyone speaks once about the initial team.")
-    
-    # User speaks first
-    print("\nYour turn to speak. What do you want to say about the initial team?")
-    user_input = input("You: ")
-    conversation_history.append({"speaker": "You", "message": user_input})
-    
-    # Each agent speaks once
-    print("\n=== AGENT RESPONSES ===")
-    for agent in all_agents:
+def determine_turn_order():
+    ordered_names = ["AgentA", "AgentB", "AgentC", "AgentD", "AgentE", "User"]
+    quest_leader_index = random.randint(0, 5)
+    quest_leader_name = ordered_names[quest_leader_index]
+    print(f"[TURN INFO] Quest Leader is: {quest_leader_name}")
+    return ordered_names, quest_leader_name
 
+def select_team_members(ordered_names, quest_leader_name, conversation_history, round_number=1,team_size=3, is_initial=True):
+    def get_agent(name):
+        return user_player if name == "User" else next(a for a in all_agents if a.name == name)
+
+    rotated_order = ordered_names[ordered_names.index(quest_leader_name):] + ordered_names[:ordered_names.index(quest_leader_name)]
+    leader_agent = get_agent(quest_leader_name)
+    history_text = format_conversation_history(conversation_history)
+
+    if quest_leader_name == "User":
+        if is_initial:
+            print("You are the Quest Leader. Please give your speech first.")
+            user_speech = input("You (speech): ")
+            conversation_history.append({"speaker": "You", "message": user_speech})
+
+            print("Now please select your initial team.")
+            initial_team = select_agents_for_quest(is_initial=True, team_size=team_size)
+            print(f"Your selected team: {', '.join([a if isinstance(a, str) else a.name for a in initial_team])}")
+            return initial_team, conversation_history
+
+        else:
+            print("You are the Quest Leader. Please select the final team.")
+            final_team = select_agents_for_quest(is_initial=False, team_size=team_size)
+            print(f"Your selected final team: {', '.join([a if isinstance(a, str) else a.name for a in final_team])}")
+            return final_team, conversation_history
+
+    else:
+        if is_initial:
+            round_intro = (
+                f"ROUND {round_number}:\n"
+                f"- Quest Leader: {quest_leader_name}\n"
+                f"- Required team size: {team_size}\n"
+                f"- Speech order: {', '.join(rotated_order)}\n"
+                f"- The leader will now propose a team."
+            )
+            for agent in all_agents:
+                user_proxy.send(message=round_intro, recipient=agent)
+            print(f"[GameMaster]: {round_intro}")
+
+            print(f"({quest_leader_name}) is the Quest Leader who will propose an initial team...")
+
+            # Step 1: Leader gives speech
+            opening_speech = leader_agent.generate_reply([
+                {"role": "user", "content": history_text},
+                {"role": "user", "content": CHOOSE_TEAM_LEADER + CHOOSE_TEAM_ACTION.format(team_size, 'E') + DISCUSSION_SUFFIX}
+            ])
+            print(f"{quest_leader_name} (speech): {opening_speech}\n---")
+            conversation_history.append({"speaker": quest_leader_name, "message": opening_speech})
+
+        else:
+            print(f"({quest_leader_name}) is now proposing the final team after everyone's opinion...")
+
+        # Step 2: Leader selects team
         history_text = format_conversation_history(conversation_history)
-        if agent.name == "AgentB":
+        valid_players = ', '.join([agent.name for agent in all_agents] + ["User"])
+        team_instruction = f"""
+        You are the leader. Respond ONLY with:
+
+        Answer: [{', '.join(['AgentX'] * team_size)}]
+
+        Choose exactly {team_size} players from: {valid_players}.
+        Do NOT explain your choice.
+        """
+
+        team_response = leader_agent.generate_reply([
+            {"role": "user", "content": history_text},
+            {"role": "user", "content": team_instruction.strip()}
+        ])
+
+        print(f"{quest_leader_name} (team selection): {team_response}\n---")
+
+        # Step 3: Parse and convert to agent objects
+        matches = re.findall(r"Agent[A-E]|User", team_response)
+        selected_names = [name for name in matches if name in [a.name for a in all_agents] + ["User"]]
+        selected_team = [get_agent(name) for name in selected_names]
+
+        print(f"{quest_leader_name} has proposed the team: {', '.join(selected_names)}")
+        conversation_history.append({"speaker": quest_leader_name, "message": f"I propose the team: {', '.join(selected_names)}"})
+
+        return selected_team, conversation_history
+
+def speech_round(ordered_names, quest_leader_name, initial_team, conversation_history):
+    print("\n=== SPEECH ROUND START ===\n")
+
+    def get_agent(name):
+        return user_player if name == "User" else next(a for a in all_agents if a.name == name)
+
+    rotated_order = ordered_names[ordered_names.index(quest_leader_name):] + ordered_names[:ordered_names.index(quest_leader_name)]
+
+    leader_agent = get_agent(quest_leader_name)
+    history_text = format_conversation_history(conversation_history)
+
+
+    # Rotated discussion
+    for name in rotated_order:
+        if name == quest_leader_name:
+            continue
+        agent = get_agent(name)
+        history_text = format_conversation_history(conversation_history)
+
+        if name == "AgentB":
             draft = agent.generate_reply([
                 {"role": "user", "content": history_text},
-                {"role": "user", "content": f"Based on the conversation so far and your role, give your honest opinion about the proposed team: {', '.join([a if isinstance(a, str) else a.name for a in initial_team])}. DO NOT REVEAL YOUR ROLE directly."}
+                {"role": "user", "content": VOTE_TEAM_DISCUSSION.format(', '.join([a.name if hasattr(a, 'name') else a for a in initial_team])) + DISCUSSION_SUFFIX}
             ])
-
             criteria = critic_agent.generate_reply([
                 {"role": "user", "content": f"Draft response: {draft}"}
             ])
-
             scores = quantifier_agent.generate_reply([
                 {"role": "user", "content": f"Criteria: {criteria}\n\nDraft: {draft}"}
             ])
-
             response = verifier_agent.generate_reply([
                 {"role": "user", "content": f"Draft: {draft}\n\nCriteria: {criteria}\n\nScores: {scores}"}
             ])
-        elif agent.name == "AgentC":
-            # Initial draft response from AgentC
+
+        elif name == "AgentC":
             response = agent.generate_reply([
                 {"role": "user", "content": history_text},
-                {"role": "user", "content": f"Based on the conversation so far and your role, give your honest opinion about the proposed team: {', '.join([a if isinstance(a, str) else a.name for a in initial_team])}. DO NOT REVEAL YOUR ROLE directly."}
+                {"role": "user", "content": VOTE_TEAM_DISCUSSION.format(', '.join([a.name if hasattr(a, 'name') else a for a in initial_team])) + DISCUSSION_SUFFIX}
             ])
-
-            # Apply RA Self-Feedback loop twice
             for _ in range(2):
                 feedback = feedback_agent_c.generate_reply([
                     {"role": "user", "content": f"Provide feedback to improve this response:\n{response}"}
                 ])
-
                 response = agent.generate_reply([
                     {"role": "user", "content": f"Here is feedback on your previous message:\n{feedback}\n\nPlease revise your message accordingly. Return only the improved response and do NOT prefix your response with words like 'Final:', 'Conclusion:', or similar summarizing phrases. Speak naturally and directly."}
                 ])
 
+        elif name == "User":
+            user_input = input("Your turn to speak. What's your opinion on the team?\nYou: ")
+            conversation_history.append({"speaker": "You", "message": user_input})
+            continue
+
         else:
-            response = agent.generate_reply(
-                messages=[
-                    {"role": "user", "content": history_text},
-                    {"role": "user", "content": f"Based on the conversation so far and your role, give your honest opinion about the proposed team: {', '.join([a if isinstance(a, str) else a.name for a in initial_team])}. DO NOT REVEAL YOUR ROLE directly."}
-                ]
-            )
-            
-        print(f"{agent.name}: {response}")
-        print("---")
-        
-        # Add to conversation history
-        conversation_history.append({"speaker": agent.name, "message": response})
-    
-    # Step 3: Select 3 players for the quest again
-    print("\nStep 3: After hearing everyone's opinion, select the final 3 players for the quest.")
-    final_team = select_agents_for_quest(is_initial=False)
-    
-    # Step 4: Execute quest and see results
-    print("\nStep 4: Execute the quest with the selected team.")
+            response = agent.generate_reply([
+                {"role": "user", "content": history_text},
+                {"role": "user", "content": VOTE_TEAM_DISCUSSION.format(', '.join([p.name if hasattr(p, 'name') else p for p in initial_team])) + DISCUSSION_SUFFIX}
+            ])
+
+        print(f"{name}: {response}\n---")
+        conversation_history.append({"speaker": name, "message": response})
+
+
+    print("\n=== SPEECH ROUND END ===\n")
+    return conversation_history
+
+def run_game():
+    initialize_game()
+    conversation_history = []
+
+    turn_order, quest_leader = determine_turn_order()
+    initial_team, conversation_history = select_team_members(ordered_names=turn_order, quest_leader_name=quest_leader, conversation_history=conversation_history, round_number=1,team_size=2, is_initial=True)
+    conversation_history = speech_round(turn_order, quest_leader, initial_team, conversation_history)
+    print("\nStep 3: Final team selection by user.")
+    final_team, conversation_history = select_team_members(ordered_names=turn_order, quest_leader_name=quest_leader, conversation_history=conversation_history, round_number=1, team_size=2, is_initial=False)
+
+    print("\nStep 4: Execute the quest.")
     quest_succeeded = run_quest(final_team, conversation_history)
-    
-    # Display final result
+
     print("\n=== GAME COMPLETED ===\n")
     if quest_succeeded:
         print("The GOOD team won the quest!")

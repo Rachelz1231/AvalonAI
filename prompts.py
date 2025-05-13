@@ -1,4 +1,4 @@
-INTRODUCTION = """You are playing a game called The Resistance: Avalon.
+INTRODUCTION = """
 
 The Resistance: Avalon is the game of hidden identities and social deduction. There are two teams in the game: Good and Evil. Each player has a hidden identity (role) and side. 
 
@@ -30,7 +30,7 @@ Hence, Evil players usually know who is on the Evil side, but Good players usual
 
 Players may make any claims during the game, at any point in the game. Discussion, deception, accusation, persuasion, and logical deduction are all equally important in order for Good to prevail or Evil to rule the day. Hence, players should rarely reveal their true identity to other players. Players will, can, and should lie to achieve their goals.
 
-In the current game, there are 6 players, including AgentA, AgentB, AgentC, AgentD, AgentE, and User. 4 players are good, including 1 Merlin, 1 Percival, and 2 LoyalServant(s). 2 players are evil, including 1 Assassin, and 1 Morgana. The number of participants required for each quest are 2,3,4,3,4 respectively. 
+In the current game, there are total 6 players. 4 players are good, including 1 Merlin, 1 Percival, and 2 LoyalServant(s). 2 players are evil, including 1 Assassin, and 1 Morgana. The number of participants required for each quest are 2,3,4,3,4 respectively. 
 """
 
 TUTORIAL_STRATEGIES_PROMPTS_ZERO_SHOT = {
